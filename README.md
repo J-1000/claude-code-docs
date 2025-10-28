@@ -47,10 +47,16 @@ This tool requires the following to be installed:
 
 ## Installation
 
-Run this single command:
+Run these commands:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ericbuess/claude-code-docs/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ericbuess/claude-code-docs/main/install.sh -o /tmp/install.sh
+
+# Fix the problematic line
+sed -i.bak '2s/set -euo pipefail/set -eo pipefail/' /tmp/install.sh
+
+# Run it
+bash /tmp/install.sh
 ```
 
 This will:
